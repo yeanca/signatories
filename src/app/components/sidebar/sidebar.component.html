@@ -1,0 +1,42 @@
+<div [ngClass]="{'w-64': !collapsed, 'w-20': collapsed}" class="h-screen bg-white shadow-md flex flex-col justify-between transition-all duration-300">
+  <div>
+    <!-- Top logo and toggle -->
+    <div class="flex items-center justify-between px-4 py-6">
+      <div class="flex items-center gap-2" *ngIf="!collapsed">
+        <img src="assets/logo.svg" alt="Logo" class="h-6 w-6" />
+        <span class="text-xl font-semibold text-blue-600">signatories</span>
+      </div>
+      <button (click)="toggleSidebar()" class="text-gray-600">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <nav class="px-2 text-sm space-y-1">
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-100">
+        <fa-icon [icon]="faHouse" class="w-5 h-5" />
+        <span *ngIf="!collapsed">Dashboard</span>
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-100">
+        <fa-icon [icon]="faInbox" class="w-5 h-5" />
+        <span *ngIf="!collapsed">Inbox</span>
+      </a>
+
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-100">
+        <fa-icon [icon]="faBoxArchive" class="w-5 h-5" />
+        <span *ngIf="!collapsed">Archive</span>
+      </a>
+
+      <!-- Add more menu items here -->
+    </nav>
+  </div>
+
+  <!-- Logout -->
+  <div class="p-4">
+    <a href="#" class="flex items-center gap-3 px-4 py-2 rounded hover:bg-red-100 text-red-600">
+      <fa-icon [icon]="faLogout" class="w-5 h-5" />
+      <span *ngIf="!collapsed">Logout</span>
+    </a>
+  </div>
+</div>
